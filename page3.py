@@ -46,17 +46,40 @@ def search(event):
     print(user_list)
     index = 0
     for i in range(len(user_list)+1):
-        if data == user_list[i]:
+        if i == (len(user_list)):
+            index = -1
+            break
+        elif data == user_list[i]:
             index = i
             break
-        elif i == (len(user_list)):
+    
+    if index >= 0:
+            messagebox.showinfo("Show info",user_list[index]+" "+rank_list[index]+"\n"+salary_list[index]+" BATH")
+            
+    elif index < 0:
+            messagebox.showinfo("Show info","ไม่พบข้อมูล")
+    else:
+            messagebox.showinfo("Show info","ไม่พบข้อมูล")
+
+def search_icon():
+    data = search_bar.get()
+    print(data)
+    print(user_list)
+    index = 0
+    for i in range(len(user_list)+1):
+        if i == (len(user_list)):
             index = -1
+            break
+        elif data == user_list[i]:
+            index = i
             break
         
     if index >= 0:
             messagebox.showinfo("Show info",user_list[index]+" "+rank_list[index]+"\n"+salary_list[index]+" BATH")
             
     elif index < 0:
+            messagebox.showinfo("Show info","ไม่พบข้อมูล")
+    else:
             messagebox.showinfo("Show info","ไม่พบข้อมูล")
            
         
@@ -87,26 +110,28 @@ en_searchbar.place(x=290,y=40,width=500)
 en_searchbar.bind("<Button-1>", clear_search)
 
 bg_icon = PhotoImage(file="UI/icon_search.png")
-bt_iconSearch = tk.Button(window,image=bg_icon,bg="#f35c22",activebackground="#f35c22",borderwidth=0,command=search,cursor="hand2") #ปุ่มค้นหา
+bt_iconSearch = tk.Button(window,image=bg_icon,bg="#f35c22",activebackground="#f35c22",borderwidth=0,command=search_icon,cursor="hand2") #ปุ่มค้นหา
 bt_iconSearch.place(x=950,y=40)
 
 
 #แสดงผลการค้นหา
-
-
 text_user = Text(window,height=16,width=30,font="supermarket 14",bg="#4c525f",fg="#ffffff",borderwidth=0)
 text_user.place(x=280,y=180)
 text_user.insert(tk.END,user) #ใช้ insert ใน text เพื่อแสดงผล
+text_user.configure(state=DISABLED)
 
 
-text_project = Text(window,height=16,width=30,font="supermarket 14",bg="#4c525f",fg="#ffffff",borderwidth=0)
-text_project.place(x=740,y=180)
-text_project.insert(tk.END,salary)
+text_salary = Text(window,height=16,width=30,font="supermarket 14",bg="#4c525f",fg="#ffffff",borderwidth=0)
+text_salary.place(x=740,y=180)
+text_salary.insert(tk.END,salary)
+text_salary.configure(state=DISABLED)
 
 
-text_project = Text(window,height=16,width=18,font="supermarket 14",bg="#4c525f",fg="#ffffff",borderwidth=0)
-text_project.place(x=840,y=180)
-text_project.insert(tk.END,rank)
+text_rank = Text(window,height=16,width=18,font="supermarket 14",bg="#4c525f",fg="#ffffff",borderwidth=0)
+text_rank.place(x=840,y=180)
+text_rank.configure(state=NORMAL)
+text_rank.insert(tk.END,rank)
+text_rank.configure(state=DISABLED)
 
 # user = StringVar()
 # user.set("AKKARAPON KRAIKLIN\nTHITIKORN INDEE\nKARANRAT SUPASON\nKITTIPAK LUANMANEE\nSUMITA SRIPROM\nCHONTICHA DUEMCHAI\nCHAIWAT RUEANGKHETPHIT\nPAPICHAYA DEDKHAD\nTHANATHIP TRAKRUD")
