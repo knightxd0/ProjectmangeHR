@@ -5,24 +5,40 @@ from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import os
+from Slinklist import Slinklist
 
 window = tk.Tk()
+
+sl_rank = Slinklist() #linklist rank
+sl_user = Slinklist()
+sl_salary = Slinklist()
 
 # import file txt
 file_rank = open("data/rank.txt",encoding="utf8")
 rank = file_rank.read()
 rank_list = rank.split("\n")
 print(rank_list)
+for data_r in rank_list:
+    sl_rank.insertAtEnd(data_r)
+
+# sl_rank.printList(sl_rank.head)
+    
 
 file_User = open("data/user.txt",encoding="utf8") #input file user.txt
 user = file_User.read() #ใช้ .Read() เพื่อให้นำข้อมูลมาใช้ได้
 user_list = user.split("\n")
 print(user_list)
+for data_r in user_list:
+    sl_user.insertAtEnd(data_r)
+    
+sl_user.printList(sl_user.head)
 
 file_salary = open("data/salary.txt",encoding="utf8")
 salary = file_salary.read()
 salary_list = salary.split("\n")
 print(salary_list)
+for data_r in salary_list:
+    sl_salary.insertAtEnd(data_r)
 
 # เปลี่ยนหน้า
 def page1():
@@ -41,17 +57,13 @@ def clear_search(event):
     en_searchbar.delete(0, tk.END)
     
 def search(event):
+    index = 0
     data = search_bar.get()
     print(data)
     print(user_list)
-    index = 0
-    for i in range(len(user_list)+1):
-        if i == (len(user_list)):
-            index = -1
-            break
-        elif data == user_list[i]:
-            index = i
-            break
+    
+    index = sl_user.search(data)
+    print(index)
     
     if index >= 0:
             messagebox.showinfo("Show info",user_list[index]+" "+rank_list[index]+"\n"+salary_list[index]+" BATH")
