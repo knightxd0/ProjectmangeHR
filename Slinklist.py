@@ -1,3 +1,6 @@
+from msilib.schema import File
+
+
 class Node:
     def __init__(self,data):
         self.data = data
@@ -14,6 +17,33 @@ class Slinklist:
         else:
             print(node.data + ' -> ',end='')
             self.printList(node.next)
+    
+    file = None
+    def list_fileproc(self,node,data):
+        global file
+        if node == None:
+            file.close()
+            print("Success...")
+        else:
+            user = node.data + "\n"
+            file.write(user)
+            print(node.data + ' -> ',end='')
+            return self.list_fileproc(node.next,data)
+    
+    def list_file(self,type):
+        global file
+        if type == "user":
+            data = type + ".txt"
+            file = open(data,'w',encoding="utf8")
+            self.list_fileproc(self.head,data)
+        elif type == "rank":
+            data = type + ".txt"
+            file = open(data,'w',encoding="utf8")
+            self.list_fileproc(self.head,data)
+        elif type == "salary":
+            data = type + ".txt"
+            file = open(data,'w',encoding="utf8")
+            self.list_fileproc(self.head,data)
             
     def insertAtEnd_proc(self,node,val):
         if node == None:
