@@ -6,6 +6,7 @@ from tkinter import messagebox
 import os
 # To get the dialog box to open when required
 from tkinter import filedialog
+from Slinklist import Slinklist
 
 #count นับรอบในแต่ละบรรทัดของแชทบอท
 # count = 0
@@ -16,7 +17,37 @@ logic = 0
 
 window = tk.Tk()
 
+sl_rank = Slinklist() #linklist rank
+sl_user = Slinklist()
+sl_salary = Slinklist()
 
+# import file txt
+file_rank = open("data/rank.txt",encoding="utf8")
+rank = file_rank.read()
+rank_list = rank.split("\n")
+print(rank_list)
+for data_r in rank_list:
+    sl_rank.insertAtEnd(data_r)
+
+# sl_rank.printList(sl_rank.head)
+    
+
+file_User = open("data/user.txt",encoding="utf8") #input file user.txt
+user = file_User.read() #ใช้ .Read() เพื่อให้นำข้อมูลมาใช้ได้
+user_list = user.split("\n")
+print(user_list)
+for data_r in user_list:
+    sl_user.insertAtEnd(data_r)
+    
+sl_user.printList(sl_user.head)
+
+file_salary = open("data/salary.txt",encoding="utf8")
+salary = file_salary.read()
+salary_list = salary.split("\n")
+print(salary_list)
+for data_r in salary_list:
+    sl_salary.insertAtEnd(data_r)
+    
 #เปลี่ยนหน้า
 def page1():
     window.withdraw()
@@ -28,66 +59,151 @@ def page3():
     window.withdraw()
     os.system("python page3.py")
     window.deiconify()
+    
+def search():
+    index = 0
+    data = search_bar.get()
+    print(data)
+    print(user_list)
+    
+    index = sl_user.search(data)
+    print(index)
+    
+    if index >= 0:
+            messagebox.showinfo("Show info",user_list[index]+" "+rank_list[index]+"\n"+salary_list[index]+" BATH")
+            inAndDel.set(user_list[index])
+            
+    elif index < 0:
+            messagebox.showinfo("Show info","ไม่พบข้อมูล")
+    else:
+            messagebox.showinfo("Show info","ไม่พบข้อมูล")
 
 #count นับรอบในแต่ละบรรทัดของแชทบอท
 cnum = 0
 def delMember():
     global cnum
     global logic
+    global user,rank
     countnum = cnum
     logic = 2
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
-    if countnum == 0:
-        text_del = "BOT: Hello user\n"
-        label_tree.insert(tk.END,text_del)
-        text_del = "       Please enter your name\n"
-        label_tree.insert(tk.END,text_del)
-        label_tree.configure(state=DISABLED)
-        cnum = cnum+1
-        
-    elif countnum == 1 :
-        text_del = "USER: "+data+"\n"
-        label_tree.insert(tk.END,text_del)
-        label_tree.configure(state=DISABLED)
-        cnum = cnum+1
-        delMember()
-        
-    elif countnum == 2:
-        text_del = "bot: Please enter your rank\n"
-        label_tree.insert(tk.END,text_del)
-        label_tree.configure(state=DISABLED)
-        cnum = cnum+1 
-        
-    elif countnum == 3 and data != None:
-        text_del = "USER: "+data+"\n"
-        label_tree.insert(tk.END,text_del)
-        label_tree.configure(state=DISABLED)
-        cnum = cnum+1   
-        delMember()
-        
-    elif countnum == 4:
-        text_del = "bot: Successfully delete members\n"
-        label_tree.insert(tk.END,text_del)
-        label_tree.configure(state=DISABLED)
+    c = "cancel"
+    if data == c:
+        logic = 0
         cnum = 0
-        logicnum = 0
+        label_tree.configure(state=NORMAL)
+        label_tree.insert(tk.END,"BOT: Failed to execute\n")
+        label_tree.configure(state=DISABLED)
+    
+    else:
+        if countnum == 0:
+            text_del = "BOT: Hello user\n"
+            label_tree.insert(tk.END,text_del)
+            text_del = "       Please enter your name\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1
+            
+        elif countnum == 1 :
+            text_del = "USER: "+data+"\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            user = data     #เก็บชื่อ user ที่จะลบ
+            cnum = cnum+1
+            delMember()
+            
+        elif countnum == 2:
+            text_del = "bot: Please enter your rank\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1 
+            
+        elif countnum == 3 and data != None:
+            text_del = "USER: "+data+"\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            rank = data #เก็บตำแหน่งของ user ที่จะถูกลบ
+            cnum = cnum+1   
+            delMember()
+            
+        elif countnum == 4:
+            delete_user(user,rank)
+            text_del = "bot: Successfully delete members\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = 0
+            logicnum = 0
+
+def delete_user(user, rank):
+    u = user
+    r = rank
+    
+    sl_user.delete(u)
+    print("u = " + u)
+    sl_rank.delete(r)
+    
+    sl_user.list_file("user")
+
+    
+    
         
 def insertMember():
+    global cnum
+    global logic
+    countnum = cnum
     logic = 1
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
-    if count == 0:
-        text_del = "Hello user"
-        label_tree.insert(tk.END,text_del)
+    c = "cancel"
+    if data == c:
+        logic = 0
+        cnum = 0
+        label_tree.configure(state=NORMAL)
+        label_tree.insert(tk.END,"BOT: Failed to execute\n")
         label_tree.configure(state=DISABLED)
-        count = count+1
-    elif count == 1 :
-        label_tree.insert(tk.END,data)
-        label_tree.configure(state=DISABLED)
-        count = count+1
+    
+    else:
+        if countnum == 0:
+            text_del = "BOT: Hello user\n"
+            label_tree.insert(tk.END,text_del)
+            text_del = "       Please enter your name\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1
+            
+        elif countnum == 1 :
+            text_del = "USER: "+data+"\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1
+            insertMember()
+            
+        elif countnum == 2:
+            text_del = "bot: Please enter your rank\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1 
+            
+        elif countnum == 3 and data != None:
+            text_del = "USER: "+data+"\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = cnum+1   
+            insertMember()
+            
+        elif countnum == 4:
+            text_del = "bot: Please import your image\n"
+            label_tree.insert(tk.END,text_del)
+            open_img()
+            text_del = "bot: Successfully add members\n"
+            label_tree.insert(tk.END,text_del)
+            label_tree.configure(state=DISABLED)
+            cnum = 0
+            logicnum = 0
 
 def inputbar(event):
+    print(logic)
     if logic == 1:
         insertMember()
         en_inAndDel.delete(0,tk.END)
@@ -123,7 +239,7 @@ def open_img():
 def openfilename():
 	# open file dialog box to select image
 	# The dialogue box has a title "Open"
-	filename = filedialog.askopenfilename(title ='"pen')
+	filename = filedialog.askopenfilename(title ='import photo')
 	return filename
 
 
@@ -155,12 +271,12 @@ en_searchbar.place(x=290,y=275,width=500)
 en_searchbar.bind("<Button-1>", clear_search)
 
 bg_icon = PhotoImage(file="UI/icon_search.png")
-bt_iconSearch = tk.Button(window,image=bg_icon,bg="#d0b484",activebackground="#d0b484",borderwidth=0,cursor="hand2") #ปุ่มค้นหา
+bt_iconSearch = tk.Button(window,image=bg_icon,bg="#d0b484",activebackground="#d0b484",borderwidth=0,cursor="hand2",command=search) #ปุ่มค้นหา
 bt_iconSearch.place(x=950,y=280)
 
 #ปุ่ม insert delete
 bg_btinsert = PhotoImage(file="UI/icon_insert.png")
-bt_insert = tk.Button(window,image=bg_btinsert,bg="#2c333e",activebackground="#2c333e",borderwidth=0,cursor="hand2")
+bt_insert = tk.Button(window,image=bg_btinsert,bg="#2c333e",activebackground="#2c333e",borderwidth=0,cursor="hand2",command=insertMember)
 bt_insert.place(x=924,y=450)
 
 bg_btdel = PhotoImage(file="UI/icon_del.png")
