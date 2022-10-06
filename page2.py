@@ -4,6 +4,8 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import os
+import numpy as np
+from PIL import Image, ImageDraw
 # To get the dialog box to open when required
 from tkinter import filedialog
 from Slinklist import Slinklist
@@ -134,23 +136,37 @@ def delMember():
             label_tree.configure(state=DISABLED)
             cnum = 0
             logicnum = 0
-
+#function delete user rank salary
 def delete_user(user, rank):
     u = user
     r = rank
-    
-    sl_user.delete(u)
     print("u = " + u)
-    sl_rank.delete(r)
+    #search index user
+    index_user = sl_user.search(u)
+    index_rank = sl_rank.search(r)
+    if index_rank == index_user:
+        print("user = "+str(index_user))
+        sl_user.printList(sl_user.head)
+        sl_user.delete(u)
+        sl_user.printList(sl_user.head)
+        
+        print("rank = "+str(index_rank))
+        sl_rank.printList(sl_rank.head)
+        sl_rank.delete(r)
+        sl_rank.printList(sl_rank.head)
+        
+        sl_salary.delete_index(index_user)
+        sl_user.list_file("user")
+        sl_rank.list_file("rank")
+        sl_salary.list_file("salary")
     
-    sl_user.list_file("user")
+    
 
     
-    
-        
 def insertMember():
     global cnum
     global logic
+    global user,rank
     countnum = cnum
     logic = 1
     data = inAndDel.get()
@@ -177,6 +193,7 @@ def insertMember():
             label_tree.insert(tk.END,text_del)
             label_tree.configure(state=DISABLED)
             cnum = cnum+1
+            user = data
             insertMember()
             
         elif countnum == 2:
@@ -189,19 +206,58 @@ def insertMember():
             text_del = "USER: "+data+"\n"
             label_tree.insert(tk.END,text_del)
             label_tree.configure(state=DISABLED)
-            cnum = cnum+1   
+            cnum = cnum+1
+            rank = data   
             insertMember()
             
         elif countnum == 4:
             text_del = "bot: Please import your image\n"
             label_tree.insert(tk.END,text_del)
-            open_img()
-            text_del = "bot: Successfully add members\n"
-            label_tree.insert(tk.END,text_del)
-            label_tree.configure(state=DISABLED)
-            cnum = 0
-            logicnum = 0
+            if open_img(user,rank) == 1:
+                insert_user(user,rank)
+                text_del = "bot: Successfully add members\n"
+                label_tree.insert(tk.END,text_del)
+                label_tree.configure(state=DISABLED)
+                cnum = 0
+                logicnum = 0
+            elif open_img(user,rank) == 0:
+                text_del = "bot: Not successfully add members\n"
+                label_tree.insert(tk.END,text_del)
+                label_tree.configure(state=DISABLED)
+                cnum = 0
+                logicnum = 0
 
+def insert_user(user, rank):
+    u = user
+    r = rank
+    if r == "CEO" or r == "Ceo" or r == "ceo": salary = 200,000
+    elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": salary = 80,000
+    elif r == "Secretary" or r == "secretary": salary = 40,000
+    elif r == "Development Manager" or r == "Development manager" or r == "development manager": salary = 50,000
+    elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": salary = 30,000
+    elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": salary = 26,000
+    elif r == "Developer Member" or r == "Developer member" or r == "developer member": salary = 20,000
+    elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": salary = 18,000
+    
+    
+    print("u = " + u)
+    #search index user
+    if r == "ceo" or r == "Ceo" or r =="CEO": 
+        salary = "200,000"
+        s = str(salary)
+        sl_user.insertAtHead(u)
+        sl_rank.insertAtHead(r)
+        sl_salary.insertAtHead(s)
+    else:
+        s = str(salary)
+        sl_user.insertAtEnd(u)
+        sl_rank.insertAtEnd(r)
+        sl_salary.insertAtEnd(s)
+    
+    sl_user.list_file("user")
+    sl_rank.list_file("rank")
+    sl_salary.list_file("salary")
+        
 def inputbar(event):
     print(logic)
     if logic == 1:
@@ -216,25 +272,45 @@ def clear_search(event):
     en_searchbar.delete(0, tk.END)
 
 # import photo
-def open_img():
+def open_img(user,rank):
+    global w,h
 	# Select the Imagename from a folder
-	x = openfilename()
+    x = openfilename()
+    if x:
+        # opens the image
+        img1 = Image.open(x)
+        
+        height,width = img1.size
+        lum_img = Image.new('L', [height,width] , 0)
+        print(height)
+        print(width)
+        
+        draw = ImageDraw.Draw(lum_img)
+        draw.pieslice([(0,0), (height,width)], 100, 2000, 
+                    fill = 600, outline = "white")
+        img_arr = np.array(img1)
+        lum_img_arr =np.array(lum_img)
+        # (Image.fromarray(lum_img_arr))
+        final_img_arr = np.dstack((img_arr,lum_img_arr))
+        img2 = (Image.fromarray(final_img_arr)).convert('RGBA')
 
-	# opens the image
-	img = Image.open(x)
-	
-	# resize the image and apply a high-quality down sampling filter
-	img = img.resize((250, 250), Image.ANTIALIAS)
+        data = img2.getdata()
 
-	# PhotoImage class is used to add image to widgets, icons etc
-	img = ImageTk.PhotoImage(img)
+        datas = []
 
-	# create a label
-	panel = Label(window, image = img)
-	
-	# set the image as img
-	panel.image = img
-	panel.grid(row = 2)
+        for item in data:
+            if item[0] == 0 and item[1] == 0 and item[2] == 0:
+                datas.append((255,255,255,0))
+            else:
+                datas.append(item)
+                
+        img2.putdata(datas)
+        name = "DCIM/"+str(user) +"_"+ str(rank)+".png"
+        img_save = img2.save(name, quality=95)
+        
+        return 1
+    else:
+        return 0
 
 def openfilename():
 	# open file dialog box to select image

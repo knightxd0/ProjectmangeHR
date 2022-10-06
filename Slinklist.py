@@ -10,6 +10,8 @@ class Slinklist:
     def __init__(self):
         self.head = None
         self.index = 0
+        self.index_len = 0
+        self.count_index = 0
     
     def printList(self,node):
         if node == None:
@@ -25,26 +27,32 @@ class Slinklist:
             file.close()
             print("Success...")
         else:
-            user = node.data + "\n"
+            user = str(node.data)
             file.write(user)
-            print(node.data + ' -> ',end='')
+            file.write("\n")
+            print(user + ' -> ',end='')
             return self.list_fileproc(node.next,data)
     
     def list_file(self,type):
         global file
         if type == "user":
-            data = type + ".txt"
+            data = "data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
         elif type == "rank":
-            data = type + ".txt"
+            data = "data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
         elif type == "salary":
-            data = type + ".txt"
+            data = "data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
-            
+    def insertAtHead(self,val):
+        newNode = Node(val)
+        newNode.next = self.head
+        self.head = newNode
+        print("newnode = " + str(newNode.data))
+                
     def insertAtEnd_proc(self,node,val):
         if node == None:
             # insert here
@@ -91,11 +99,44 @@ class Slinklist:
         return node
 
     def delete(self,val):
-        if self.search(val):
+        if self.search(val) >= 0:
             self.head = self.delete_proc(self.head,val)
         else:
             print('not found')
     
+    #delete ที่ index        
+    def deleteIndex_proc(self,node,index):
+        
+        if self.count_index == index:
+            self.delete(node.data)
+            print("count = " + str(self.count_index))
+            self.count_index = 0
+        else:
+            print("count = " + str(self.count_index))
+            self.count_index = self.count_index + 1
+            return self.deleteIndex_proc(node.next,index)
+        
+    def delete_index(self,index):
+        if index > -1:
+            self.deleteIndex_proc(self.head,index)
+    
+    # check resualt in index
+    def index_proc(self,node,index):
+        # print("count = " + str(self.count_index))
+        if self.count_index == index:
+            return node.data
+        else:
+            self.count_index = self.count_index + 1
+            return self.index_proc(node.next,index)
+                
+    def index_data(self,index):
+        len = self.len()
+        if index > -1 and index < len:
+            r = self.index_proc(self.head,index)
+            return r
+        else:
+            print("Index out of len")
+            
     #ใช้หาจำนวนข้อมูลใน list       
     def len_proc(self,Node):
         if Node == None:

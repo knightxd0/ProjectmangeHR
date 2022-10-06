@@ -1,10 +1,2 @@
 CEO
-Vice Chairman
-Secretary
-Development Manager
-Marketing Manager
-Personnel Manager 
-Developer Member
-Marketing Member
-Marketing Member
-Developer Member
+
