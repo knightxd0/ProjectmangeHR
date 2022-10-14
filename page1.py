@@ -53,24 +53,114 @@ for data_r in salary_list:
     
 numofperson = sl_user.len()
 print("num of person = "+ str(numofperson))
-
+      
+         
 
 #พื้นหลัง
 bg = ImageTk.PhotoImage(file="UI/bg_page1_10.png")
 bg_label = tk.Label(window,image=bg)
 bg_label.pack()
 
+
+
+
 #img person
-imgperson1 = Image.open('DCIM/prae_member.png')
+name_person1 = "DCIM/" + str(user_list[0]) + "_" + str(rank_list[0])+".png"
+imgperson1 = Image.open(name_person1)
 resize_imgperson1 = imgperson1.resize((90,90))
 
+name_person2 = "DCIM/" + str(user_list[1]) + "_" + str(rank_list[1])+".png"
+imgperson2 = Image.open(name_person2)
+resize_imgperson2 = imgperson2.resize((90,90))
+
+name_person3 = "DCIM/" + str(user_list[2]) + "_" + str(rank_list[2])+".png"
+imgperson3 = Image.open(name_person3)
+resize_imgperson3 = imgperson3.resize((90,90))
+
+name_person4 = "DCIM/" + str(user_list[3]) + "_" + str(rank_list[3])+".png"
+imgperson4 = Image.open(name_person4)
+resize_imgperson4 = imgperson4.resize((90,90))
+
+name_person5 = "DCIM/" + str(user_list[4]) + "_" + str(rank_list[4])+".png"
+imgperson5 = Image.open(name_person5)
+resize_imgperson5 = imgperson5.resize((90,90))
+
+name_person6 = "DCIM/" + str(user_list[5]) + "_" + str(rank_list[5])+".png"
+imgperson6 = Image.open(name_person6)
+resize_imgperson6 = imgperson6.resize((90,90))
+
+name_person7 = "DCIM/" + str(user_list[6]) + "_" + str(rank_list[6])+".png"
+imgperson7 = Image.open(name_person7)
+resize_imgperson7 = imgperson7.resize((90,90))
+
+name_person8 = "DCIM/" + str(user_list[7]) + "_" + str(rank_list[7])+".png"
+imgperson8 = Image.open(name_person8)
+resize_imgperson8 = imgperson8.resize((90,90))
+
+name_person9 = "DCIM/" + str(user_list[8]) + "_" + str(rank_list[8])+".png"
+imgperson9 = Image.open(name_person9)
+resize_imgperson9 = imgperson9.resize((90,90))
+
+name_person10 = "DCIM/" + str(user_list[9]) + "_" + str(rank_list[9])+".png"
+imgperson10 = Image.open(name_person10)
+resize_imgperson10 = imgperson10.resize((90,90))
+
+
+
+# imgperson3 = Image.open()
 img_person1 = ImageTk.PhotoImage(resize_imgperson1)
+img_person2 = ImageTk.PhotoImage(resize_imgperson2)
+img_person3 = ImageTk.PhotoImage(resize_imgperson3)
+img_person4 = ImageTk.PhotoImage(resize_imgperson4)
+img_person5 = ImageTk.PhotoImage(resize_imgperson5)
+img_person6 = ImageTk.PhotoImage(resize_imgperson6)
+img_person7 = ImageTk.PhotoImage(resize_imgperson7)
+img_person8 = ImageTk.PhotoImage(resize_imgperson8)
+img_person9 = ImageTk.PhotoImage(resize_imgperson9)
+img_person10 = ImageTk.PhotoImage(resize_imgperson10)
 
 canvas = Canvas(window)
 # cancvas
 bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
-img_p1 = canvas.create_image(615,110, image=img_person1) 
-label_ceo = canvas.create_text(620,200, text="อัครพล ไกรกลิ่น",font="supermarket 20",fill='#ffffff')
+#ceo
+img_p1 = canvas.create_image(615,110, image=img_person1)
+label_ceo = canvas.create_text(620,200, text=str(user_list[0]),font="supermarket 16",fill='#ffffff')
+#รองประธาน
+img_p2 = canvas.create_image(425,230, image=img_person2)
+label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
+label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[1]),font="supermarket 16",fill='#ffffff')
+# เลขา
+img_p3 = canvas.create_image(820,230, image=img_person3)
+label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
+label_name_Secretary = canvas.create_text(820,320, text=str(user_list[2]),font="supermarket 16",fill='#ffffff')
+# ฝ่ายบุคล
+img_p4 = canvas.create_image(940,410, image=img_person6)
+label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
+label_name_Secretary = canvas.create_text(940,500, text=str(user_list[5]),font="supermarket 16",fill='#ffffff')
+# หัวหน้า Development
+img_p5 = canvas.create_image(320,410, image=img_person4)
+label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
+label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[3]),font="supermarket 16",fill='#ffffff')
+# หัวหน้า ฝ่ายขาย
+img_p6 = canvas.create_image(625,410, image=img_person5)
+label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[4]),font="supermarket 16",fill='#ffffff')
+# Developer
+img_p7 = canvas.create_image(290,650, image=img_person7)
+label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[6]),font="supermarket 9",fill='#ffffff')
+# Developer
+img_p8 = canvas.create_image(415,650, image=img_person8)
+label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[7]),font="supermarket 9",fill='#ffffff')
+# ฝ่ายขาย
+img_p9 = canvas.create_image(570,650, image=img_person9)
+label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[8]),font="supermarket 9",fill='#ffffff')
+# ฝ่ายขาย
+img_p10 = canvas.create_image(695,650, image=img_person10)
+label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[9]),font="supermarket 9",fill='#ffffff')
 
 #ปุ่มเปลี่ยนหน้า
 bg_btpage2 = PhotoImage(file="UI/bt_page2.png")

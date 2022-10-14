@@ -230,14 +230,14 @@ def insertMember():
 def insert_user(user, rank):
     u = user
     r = rank
-    if r == "CEO" or r == "Ceo" or r == "ceo": salary = 200,000
-    elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": salary = 80,000
-    elif r == "Secretary" or r == "secretary": salary = 40,000
-    elif r == "Development Manager" or r == "Development manager" or r == "development manager": salary = 50,000
-    elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": salary = 30,000
-    elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": salary = 26,000
-    elif r == "Developer Member" or r == "Developer member" or r == "developer member": salary = 20,000
-    elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": salary = 18,000
+    if r == "CEO" or r == "Ceo" or r == "ceo": salary = "200,000"
+    elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": salary = "80,000"
+    elif r == "Secretary" or r == "secretary": salary = "40,000"
+    elif r == "Development Manager" or r == "Development manager" or r == "development manager": salary = "50,000"
+    elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": salary = "30,000"
+    elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": salary = "26,000"
+    elif r == "Developer Member" or r == "Developer member" or r == "developer member": salary = "20,000"
+    elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": salary = "18,000"
     
     
     print("u = " + u)
