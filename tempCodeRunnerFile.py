@@ -1,1 +1,1 @@
-canvas.create_image(0,0, image=img_person1)
+print(user_list[index01])

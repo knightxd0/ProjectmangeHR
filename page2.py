@@ -49,6 +49,9 @@ salary_list = salary.split("\n")
 print(salary_list)
 for data_r in salary_list:
     sl_salary.insertAtEnd(data_r)
+
+numofperson = sl_user.len()
+print("num of person = "+ str(numofperson))
     
 #เปลี่ยนหน้า
 def page1():
@@ -91,7 +94,7 @@ def delMember():
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
     c = "cancel"
-    if data == c:
+    if data == c or numofperson == 4:
         logic = 0
         cnum = 0
         label_tree.configure(state=NORMAL)
@@ -172,11 +175,14 @@ def insertMember():
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
     c = "cancel"
-    if data == c:
+    if data == c or numofperson == 10:
         logic = 0
         cnum = 0
         label_tree.configure(state=NORMAL)
-        label_tree.insert(tk.END,"BOT: Failed to execute\n")
+        if data == c:
+            label_tree.insert(tk.END,"BOT: Failed to execute\n")
+        elif numofperson == 10:
+            label_tree.insert(tk.END,"BOT: Failed to execute because full staff\n")
         label_tree.configure(state=DISABLED)
     
     else:
