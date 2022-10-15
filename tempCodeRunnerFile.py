@@ -1,1 +1,1 @@
-print(user_list[index01])
+canvas = Canvas(window)
