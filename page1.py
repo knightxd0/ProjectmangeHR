@@ -25,7 +25,7 @@ sl_user = Slinklist()
 sl_salary = Slinklist()
 
 # import file txt
-file_rank = open("data/rank.txt",encoding="utf8")
+file_rank = open("ProjectmangeHR/data/rank.txt",encoding="utf8")
 rank = file_rank.read()
 rank_list = rank.split("\n")
 print(rank_list)
@@ -35,7 +35,7 @@ for data_r in rank_list:
 # sl_rank.printList(sl_rank.head)
     
 
-file_User = open("data/user.txt",encoding="utf8") #input file user.txt
+file_User = open("ProjectmangeHR/data/user.txt",encoding="utf8") #input file user.txt
 user = file_User.read() #ใช้ .Read() เพื่อให้นำข้อมูลมาใช้ได้
 user_list = user.split("\n")
 print(user_list)
@@ -44,7 +44,7 @@ for data_r in user_list:
     
 sl_user.printList(sl_user.head)
 
-file_salary = open("data/salary.txt",encoding="utf8")
+file_salary = open("ProjectmangeHR/data/salary.txt",encoding="utf8")
 salary = file_salary.read()
 salary_list = salary.split("\n")
 print(salary_list)
@@ -57,7 +57,7 @@ print("num of person = "+ str(numofperson))
          
 
 #พื้นหลัง
-bg = ImageTk.PhotoImage(file="UI/bg_page1_10.png")
+bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
 bg_label = tk.Label(window,image=bg)
 bg_label.pack()
 
@@ -65,43 +65,43 @@ bg_label.pack()
 
 
 #img person
-name_person1 = "DCIM/" + str(user_list[0]) + "_" + str(rank_list[0])+".png"
+name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[0]) + "_" + str(rank_list[0])+".png"
 imgperson1 = Image.open(name_person1)
 resize_imgperson1 = imgperson1.resize((90,90))
 
-name_person2 = "DCIM/" + str(user_list[1]) + "_" + str(rank_list[1])+".png"
+name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[1]) + "_" + str(rank_list[1])+".png"
 imgperson2 = Image.open(name_person2)
 resize_imgperson2 = imgperson2.resize((90,90))
 
-name_person3 = "DCIM/" + str(user_list[2]) + "_" + str(rank_list[2])+".png"
+name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[2]) + "_" + str(rank_list[2])+".png"
 imgperson3 = Image.open(name_person3)
 resize_imgperson3 = imgperson3.resize((90,90))
 
-name_person4 = "DCIM/" + str(user_list[3]) + "_" + str(rank_list[3])+".png"
+name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[3]) + "_" + str(rank_list[3])+".png"
 imgperson4 = Image.open(name_person4)
 resize_imgperson4 = imgperson4.resize((90,90))
 
-name_person5 = "DCIM/" + str(user_list[4]) + "_" + str(rank_list[4])+".png"
+name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[4]) + "_" + str(rank_list[4])+".png"
 imgperson5 = Image.open(name_person5)
 resize_imgperson5 = imgperson5.resize((90,90))
 
-name_person6 = "DCIM/" + str(user_list[5]) + "_" + str(rank_list[5])+".png"
+name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[5]) + "_" + str(rank_list[5])+".png"
 imgperson6 = Image.open(name_person6)
 resize_imgperson6 = imgperson6.resize((90,90))
 
-name_person7 = "DCIM/" + str(user_list[6]) + "_" + str(rank_list[6])+".png"
+name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[6]) + "_" + str(rank_list[6])+".png"
 imgperson7 = Image.open(name_person7)
 resize_imgperson7 = imgperson7.resize((90,90))
 
-name_person8 = "DCIM/" + str(user_list[7]) + "_" + str(rank_list[7])+".png"
+name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[7]) + "_" + str(rank_list[7])+".png"
 imgperson8 = Image.open(name_person8)
 resize_imgperson8 = imgperson8.resize((90,90))
 
-name_person9 = "DCIM/" + str(user_list[8]) + "_" + str(rank_list[8])+".png"
+name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[8]) + "_" + str(rank_list[8])+".png"
 imgperson9 = Image.open(name_person9)
 resize_imgperson9 = imgperson9.resize((90,90))
 
-name_person10 = "DCIM/" + str(user_list[9]) + "_" + str(rank_list[9])+".png"
+name_person10 = "ProjectmangeHR/DCIM/" + str(user_list[9]) + "_" + str(rank_list[9])+".png"
 imgperson10 = Image.open(name_person10)
 resize_imgperson10 = imgperson10.resize((90,90))
 
@@ -163,11 +163,11 @@ label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",fon
 label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[9]),font="supermarket 9",fill='#ffffff')
 
 #ปุ่มเปลี่ยนหน้า
-bg_btpage2 = PhotoImage(file="UI/bt_page2.png")
+bg_btpage2 = PhotoImage(file="ProjectmangeHR/UI/bt_page2.png")
 bt_page2 = tk.Button(window,image=bg_btpage2,bg="#2c333e",activebackground="#2c333e",borderwidth=0,command=page2,cursor="hand2")
 bt_page2.place(x=38,y=160)
 
-bg_btpage3 = PhotoImage(file="UI/bt_page3.png")
+bg_btpage3 = PhotoImage(file="ProjectmangeHR/UI/bt_page3.png")
 bt_page3 = tk.Button(window,image=bg_btpage3,bg="#2c333e",activebackground="#2c333e",borderwidth=0,command=page3,cursor="hand2")
 bt_page3.place(x=35,y=220)
 

@@ -14,7 +14,7 @@ sl_user = Slinklist()
 sl_salary = Slinklist()
 
 # import file txt
-file_rank = open("data/rank.txt",encoding="utf8")
+file_rank = open("ProjectmangeHR/data/rank.txt",encoding="utf8")
 rank = file_rank.read()
 rank_list = rank.split("\n")
 print(rank_list)
@@ -24,7 +24,7 @@ for data_r in rank_list:
 # sl_rank.printList(sl_rank.head)
     
 
-file_User = open("data/user.txt",encoding="utf8") #input file user.txt
+file_User = open("ProjectmangeHR/data/user.txt",encoding="utf8") #input file user.txt
 user = file_User.read() #ใช้ .Read() เพื่อให้นำข้อมูลมาใช้ได้
 user_list = user.split("\n")
 print(user_list)
@@ -33,7 +33,7 @@ for data_r in user_list:
     
 sl_user.printList(sl_user.head)
 
-file_salary = open("data/salary.txt",encoding="utf8")
+file_salary = open("ProjectmangeHR/data/salary.txt",encoding="utf8")
 salary = file_salary.read()
 salary_list = salary.split("\n")
 print(salary_list)
@@ -100,16 +100,16 @@ def search_icon():
 
 
 #พื้นหลัง
-bg = PhotoImage(file="UI/bg_page3.png")
+bg = PhotoImage(file="ProjectmangeHR/UI/bg_page3.png")
 bg_label = tk.Label(window,image=bg)
 bg_label.pack()
 
 #ปุ่มเปลี่ยนหน้า
-bg_btpage1 = PhotoImage(file="UI/bt_page1.png")
+bg_btpage1 = PhotoImage(file="ProjectmangeHR/UI/bt_page1.png")
 bt_page1 = tk.Button(window,image=bg_btpage1,bg="#2c333e",activebackground="#2c333e",borderwidth=0,command=page1,cursor="hand2")
 bt_page1.place(x=30,y=90)
 
-bg_btpage2 = PhotoImage(file="UI/bt_page2.png")
+bg_btpage2 = PhotoImage(file="ProjectmangeHR/UI/bt_page2.png")
 bt_page2 = tk.Button(window,image=bg_btpage2,bg="#2c333e",activebackground="#2c333e",borderwidth=0,command=page2,cursor="hand2")
 bt_page2.place(x=35,y=150)
 
@@ -121,7 +121,7 @@ en_searchbar.insert(0, "ค้นหา...")
 en_searchbar.place(x=290,y=40,width=500)
 en_searchbar.bind("<Button-1>", clear_search)
 
-bg_icon = PhotoImage(file="UI/icon_search.png")
+bg_icon = PhotoImage(file="ProjectmangeHR/UI/icon_search.png")
 bt_iconSearch = tk.Button(window,image=bg_icon,bg="#f35c22",activebackground="#f35c22",borderwidth=0,command=search_icon,cursor="hand2") #ปุ่มค้นหา
 bt_iconSearch.place(x=950,y=40)
 
