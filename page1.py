@@ -11,13 +11,13 @@ window = tk.Tk()
 #เปลี่ยนหน้า
 def page2():
     window.withdraw()
-    os.system("python page2.py")
+    os.system("python ProjectmangeHR/page2.py")
     window.deiconify()
     
 
 def page3():
     window.withdraw()
-    os.system("python page3.py")
+    os.system("python ProjectmangeHR/page3.py")
     window.deiconify()
     
 sl_rank = Slinklist() #linklist rank

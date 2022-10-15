@@ -43,13 +43,13 @@ for data_r in salary_list:
 # เปลี่ยนหน้า
 def page1():
     window.withdraw()
-    os.system("python page1.py")
+    os.system("python ProjectmangeHR/page1.py")
     window.deiconify()
     
 
 def page2():
     window.withdraw()
-    os.system("python page2.py")
+    os.system("python ProjectmangeHR/page2.py")
     window.deiconify()
 
 # search
