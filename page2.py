@@ -29,7 +29,8 @@ rank = file_rank.read()
 rank_list = rank.split("\n")
 print(rank_list)
 for data_r in rank_list:
-    sl_rank.insertAtEnd(data_r)
+    if data_r != "":
+        sl_rank.insertAtEnd(data_r)
 
 # sl_rank.printList(sl_rank.head)
     
@@ -39,18 +40,22 @@ user = file_User.read() #ใช้ .Read() เพื่อให้นำข้�
 user_list = user.split("\n")
 print(user_list)
 for data_r in user_list:
-    sl_user.insertAtEnd(data_r)
+    if data_r != "":
+        sl_user.insertAtEnd(data_r)
     
 sl_user.printList(sl_user.head)
 
+numofperson = 0
 file_salary = open("ProjectmangeHR/data/salary.txt",encoding="utf8")
 salary = file_salary.read()
 salary_list = salary.split("\n")
 print(salary_list)
 for data_r in salary_list:
-    sl_salary.insertAtEnd(data_r)
+    if data_r != "":
+        sl_salary.insertAtEnd(data_r)
+        numofperson = numofperson + 1
 
-numofperson = sl_user.len()
+# numofperson = sl_user.len()
 print("num of person = "+ str(numofperson))
     
 #เปลี่ยนหน้า
@@ -133,20 +138,30 @@ def delMember():
             delMember()
             
         elif countnum == 4:
-            delete_user(user,rank)
-            text_del = "bot: Successfully delete members\n"
-            label_tree.insert(tk.END,text_del)
-            label_tree.configure(state=DISABLED)
-            cnum = 0
-            logicnum = 0
+            logic = delete_user(user,rank)
+            if logic == 1:
+                text_del = "bot: Successfully delete members\n"
+                label_tree.insert(tk.END,text_del)
+                label_tree.configure(state=DISABLED)
+                cnum = 0
+                logicnum = 0
+            elif logic == 0:
+                text_del = "bot: Not Successfully delete members\n"
+                label_tree.insert(tk.END,text_del)
+                label_tree.configure(state=DISABLED)
+                cnum = 0
+                logicnum = 0
 #function delete user rank salary
 def delete_user(user, rank):
     u = user
     r = rank
     print("u = " + u)
+    print("r = " + r)
     #search index user
     index_user = sl_user.search(u)
     index_rank = sl_rank.search(r)
+    print("index_user = "+str(index_user))
+    print("index_rank = "+str(index_rank))
     if index_rank == index_user:
         print("user = "+str(index_user))
         sl_user.printList(sl_user.head)
@@ -162,6 +177,9 @@ def delete_user(user, rank):
         sl_user.list_file("user")
         sl_rank.list_file("rank")
         sl_salary.list_file("salary")
+        return 1
+    else:
+        return 0
     
     
 
@@ -175,13 +193,13 @@ def insertMember():
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
     c = "cancel"
-    if data == c or numofperson == 10:
+    if data == c or numofperson >= 10:
         logic = 0
         cnum = 0
         label_tree.configure(state=NORMAL)
         if data == c:
             label_tree.insert(tk.END,"BOT: Failed to execute\n")
-        elif numofperson == 10:
+        elif numofperson >= 10:
             label_tree.insert(tk.END,"BOT: Failed to execute because full staff\n")
         label_tree.configure(state=DISABLED)
     
@@ -234,6 +252,7 @@ def insertMember():
                 logicnum = 0
 
 def insert_user(user, rank):
+
     u = user
     r = rank
     if r == "CEO" or r == "Ceo" or r == "ceo": salary = "200,000"
@@ -242,11 +261,23 @@ def insert_user(user, rank):
     elif r == "Development Manager" or r == "Development manager" or r == "development manager": salary = "50,000"
     elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": salary = "30,000"
     elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": salary = "26,000"
-    elif r == "Developer Member" or r == "Developer member" or r == "developer member": salary = "20,000"
-    elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": salary = "18,000"
+    elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+        salary = "20,000"
+        r = "Developer Member1"
+    elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+        salary = "20,000"
+        r = "Developer Member2"
+
+    elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+        salary = "18,000"
+        r = "Marketing Member1"
+    elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+        salary = "18,000"
+        r = "Marketing Member2"
     
     
     print("u = " + u)
+    print("r = " + u)
     #search index user
     if r == "ceo" or r == "Ceo" or r =="CEO": 
         salary = "200,000"

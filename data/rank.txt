@@ -4,6 +4,7 @@ Secretary
 Development Manager
 Marketing Manager
 Personnel Manager
-Developer Member
-Developer Member
-Marketing Member
+Developer Member1
+Developer Member2
+Marketing Member1
+Marketing Member2

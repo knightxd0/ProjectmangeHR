@@ -12,6 +12,7 @@ class Slinklist:
         self.index = 0
         self.index_len = 0
         self.count_index = 0
+        self.count_listfile = 0
     
     def printList(self,node):
         if node == None:
@@ -27,26 +28,36 @@ class Slinklist:
             file.close()
             print("Success...")
         else:
-            user = str(node.data)
-            file.write(user)
-            file.write("\n")
-            print(user + ' -> ',end='')
-            return self.list_fileproc(node.next,data)
+            data = str(node.data)
+            if  data != " " :
+                user = str(node.data)
+                file.write(user)
+                file.write("\n")
+                print(user + ' -> ',end='')
+                # self.count_listfile = self.count_listfile + 1
+                return self.list_fileproc(node.next,data)
+            else :
+                user = str(node.data)
+                file.write(user)
+                print(user + ' -> ',end='')
+                # self.count_listfile = 0
+                return self.list_fileproc(node.next,data)
     
     def list_file(self,type):
         global file
         if type == "user":
-            data = "data/"+type + ".txt"
+            data = "ProjectmangeHR/data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
         elif type == "rank":
-            data = "data/"+type + ".txt"
+            data = "ProjectmangeHR/data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
         elif type == "salary":
-            data = "data/"+type + ".txt"
+            data = "ProjectmangeHR/data/"+type + ".txt"
             file = open(data,'w',encoding="utf8")
             self.list_fileproc(self.head,data)
+
     def insertAtHead(self,val):
         newNode = Node(val)
         newNode.next = self.head

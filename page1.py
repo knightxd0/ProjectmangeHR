@@ -59,7 +59,7 @@ canvas = Canvas(window)
 count_develop = 1  
 count_marketing = 1      
 i = numofperson
-if i == 4:
+if i == 10:
     print("person "+str(i))
     #พื้นหลัง
     bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
@@ -151,8 +151,7 @@ if i == 4:
             label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
             label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
 
-        elif r == "Developer Member" or r == "Developer member" or r == "developer member": 
-            if count_develop == 1:
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
                 #index rank
                 index7 = sl_rank.search(r)
                 #img person
@@ -165,10 +164,10 @@ if i == 4:
                 img_p7 = canvas.create_image(290,650, image=img_person7)
                 label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
                 label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
-                count_develop = count_develop + 1
-            elif count_develop == 2:
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
                 #index rank
-                index8 = sl_rank.search(r)+1
+                index8 = sl_rank.search(r)
                 #img person
                 name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
                 imgperson8 = Image.open(name_person8)
@@ -179,8 +178,8 @@ if i == 4:
                 img_p8 = canvas.create_image(415,650, image=img_person8)
                 label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
                 label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
-        elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": 
-            if count_marketing == 1:
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
                 #index rank
                 index9 = sl_rank.search(r)
                 #img person
@@ -194,157 +193,9 @@ if i == 4:
                 label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
                 label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
                 count_marketing = count_marketing + 1
-            elif count_marketing == 2:
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
                 #index rank
-                index11 = sl_rank.search(r)+1
-                #img person
-                nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
-                imgperson11 = Image.open(nameperson11)
-                resize_imgperson11 = imgperson11.resize((90,90))
-                # imgperson3 = Image.open()
-                img_person11 = ImageTk.PhotoImage(resize_imgperson11)
-                # ฝ่ายขาย
-                img_p10 = canvas.create_image(695,650, image=img_person11)
-                label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
-                label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
-elif i == 10:
-    print("person "+str(i))
-    #พื้นหลัง
-    bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
-    # bg_label = tk.Label(window,image=bg)
-    # bg_label.pack()
-    # cancvas
-    bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
-    for r in rank_list:
-        if r == "CEO" or r == "Ceo" or r == "ceo": 
-            #index rank
-            index1 = sl_rank.search(r)
-            #img person
-            name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[index1]) + "_" + str(rank_list[index1])+".png"
-            imgperson1 = Image.open(name_person1)
-            resize_imgperson1 = imgperson1.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person1 = ImageTk.PhotoImage(resize_imgperson1)
-            #ceo
-            img_p1 = canvas.create_image(615,110, image=img_person1)
-            label_ceo = canvas.create_text(620,200, text=str(user_list[index1]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": 
-            #index rank
-            index2 = sl_rank.search(r)
-            #img person
-            name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[index2]) + "_" + str(rank_list[index2])+".png"
-            imgperson2 = Image.open(name_person2)
-            resize_imgperson2 = imgperson2.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person2 = ImageTk.PhotoImage(resize_imgperson2)
-            #รองประธาน
-            img_p2 = canvas.create_image(425,230, image=img_person2)
-            label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
-            label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[index2]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Secretary" or r == "secretary": 
-            #index rank
-            index3 = sl_rank.search(r)
-            #img person
-            name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[index3]) + "_" + str(rank_list[index3])+".png"
-            imgperson3 = Image.open(name_person3)
-            resize_imgperson3 = imgperson3.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person3 = ImageTk.PhotoImage(resize_imgperson3)
-            # เลขา
-            img_p3 = canvas.create_image(820,230, image=img_person3)
-            label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
-            label_name_Secretary = canvas.create_text(820,320, text=str(user_list[index3]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Development Manager" or r == "Development manager" or r == "development manager": 
-            #index rank
-            index4 = sl_rank.search(r)
-            #img person
-            name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[index4]) + "_" + str(rank_list[index4])+".png"
-            imgperson4 = Image.open(name_person4)
-            resize_imgperson4 = imgperson4.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person4 = ImageTk.PhotoImage(resize_imgperson4)
-            # หัวหน้า Development
-            img_p5 = canvas.create_image(320,410, image=img_person4)
-            label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
-            label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[index4]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": 
-            #index rank
-            index5 = sl_rank.search(r)
-            #img person
-            name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[index5]) + "_" + str(rank_list[index5])+".png"
-            imgperson5 = Image.open(name_person5)
-            resize_imgperson5 = imgperson5.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person5 = ImageTk.PhotoImage(resize_imgperson5)
-            # หัวหน้า ฝ่ายขาย
-            img_p6 = canvas.create_image(625,410, image=img_person5)
-            label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
-            label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[index5]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": 
-            #index rank
-            index6 = sl_rank.search(r)
-            #img person
-            name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[index6]) + "_" + str(rank_list[index6])+".png"
-            imgperson6 = Image.open(name_person6)
-            resize_imgperson6 = imgperson6.resize((90,90))
-            # imgperson3 = Image.open()
-            img_person6 = ImageTk.PhotoImage(resize_imgperson6)
-            # ฝ่ายบุคล
-            img_p4 = canvas.create_image(940,410, image=img_person6)
-            label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
-            label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
-
-        elif r == "Developer Member" or r == "Developer member" or r == "developer member": 
-            if count_develop == 1:
-                #index rank
-                index7 = sl_rank.search(r)
-                #img person
-                name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[index7]) + "_" + str(rank_list[index7])+".png"
-                imgperson7 = Image.open(name_person7)
-                resize_imgperson7 = imgperson7.resize((90,90))
-                # imgperson3 = Image.open()
-                img_person7 = ImageTk.PhotoImage(resize_imgperson7)
-                # Developer
-                img_p7 = canvas.create_image(290,650, image=img_person7)
-                label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
-                label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
-                count_develop = count_develop + 1
-            elif count_develop == 2:
-                #index rank
-                index8 = sl_rank.search(r)+1
-                #img person
-                name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
-                imgperson8 = Image.open(name_person8)
-                resize_imgperson8 = imgperson8.resize((90,90))
-                # imgperson3 = Image.open()
-                img_person8 = ImageTk.PhotoImage(resize_imgperson8)
-                # Developer
-                img_p8 = canvas.create_image(415,650, image=img_person8)
-                label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
-                label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
-        elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": 
-            if count_marketing == 1:
-                #index rank
-                index9 = sl_rank.search(r)
-                #img person
-                name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[index9]) + "_" + str(rank_list[index9])+".png"
-                imgperson9 = Image.open(name_person9)
-                resize_imgperson9 = imgperson9.resize((90,90))
-                # imgperson3 = Image.open()
-                img_person9 = ImageTk.PhotoImage(resize_imgperson9)
-                # ฝ่ายขาย
-                img_p9 = canvas.create_image(570,650, image=img_person9)
-                label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
-                label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
-                count_marketing = count_marketing + 1
-            elif count_marketing == 2:
-                #index rank
-                index11 = sl_rank.search(r)+1
+                index11 = sl_rank.search(r)
                 #img person
                 nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
                 imgperson11 = Image.open(nameperson11)
@@ -447,8 +298,7 @@ elif i == 9:
             label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
             label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
 
-        elif r == "Developer Member" or r == "Developer member" or r == "developer member": 
-            if count_develop == 1:
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
                 #index rank
                 index7 = sl_rank.search(r)
                 #img person
@@ -461,10 +311,10 @@ elif i == 9:
                 img_p7 = canvas.create_image(290,650, image=img_person7)
                 label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
                 label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
-                count_develop = count_develop + 1
-            elif count_develop == 2:
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
                 #index rank
-                index8 = sl_rank.search(r)+1
+                index8 = sl_rank.search(r)
                 #img person
                 name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
                 imgperson8 = Image.open(name_person8)
@@ -475,8 +325,8 @@ elif i == 9:
                 img_p8 = canvas.create_image(415,650, image=img_person8)
                 label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
                 label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
-        elif r == "Marketing Member" or r == "Marketing member" or r == "marketing member": 
-            if count_marketing == 1:
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
                 #index rank
                 index9 = sl_rank.search(r)
                 #img person
@@ -490,9 +340,9 @@ elif i == 9:
                 label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
                 label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
                 count_marketing = count_marketing + 1
-            elif count_marketing == 2:
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
                 #index rank
-                index11 = sl_rank.search(r)+1
+                index11 = sl_rank.search(r)
                 #img person
                 nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
                 imgperson11 = Image.open(nameperson11)
@@ -503,6 +353,597 @@ elif i == 9:
                 img_p10 = canvas.create_image(695,650, image=img_person11)
                 label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
                 label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
+elif i == 8:
+    print("person "+str(i))
+    #พื้นหลัง
+    bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
+    # bg_label = tk.Label(window,image=bg)
+    # bg_label.pack()
+    # cancvas
+    bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
+    for r in rank_list:
+        if r == "CEO" or r == "Ceo" or r == "ceo": 
+            #index rank
+            index1 = sl_rank.search(r)
+            #img person
+            name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[index1]) + "_" + str(rank_list[index1])+".png"
+            imgperson1 = Image.open(name_person1)
+            resize_imgperson1 = imgperson1.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person1 = ImageTk.PhotoImage(resize_imgperson1)
+            #ceo
+            img_p1 = canvas.create_image(615,110, image=img_person1)
+            label_ceo = canvas.create_text(620,200, text=str(user_list[index1]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": 
+            #index rank
+            index2 = sl_rank.search(r)
+            #img person
+            name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[index2]) + "_" + str(rank_list[index2])+".png"
+            imgperson2 = Image.open(name_person2)
+            resize_imgperson2 = imgperson2.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person2 = ImageTk.PhotoImage(resize_imgperson2)
+            #รองประธาน
+            img_p2 = canvas.create_image(425,230, image=img_person2)
+            label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
+            label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[index2]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Secretary" or r == "secretary": 
+            #index rank
+            index3 = sl_rank.search(r)
+            #img person
+            name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[index3]) + "_" + str(rank_list[index3])+".png"
+            imgperson3 = Image.open(name_person3)
+            resize_imgperson3 = imgperson3.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person3 = ImageTk.PhotoImage(resize_imgperson3)
+            # เลขา
+            img_p3 = canvas.create_image(820,230, image=img_person3)
+            label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(820,320, text=str(user_list[index3]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Development Manager" or r == "Development manager" or r == "development manager": 
+            #index rank
+            index4 = sl_rank.search(r)
+            #img person
+            name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[index4]) + "_" + str(rank_list[index4])+".png"
+            imgperson4 = Image.open(name_person4)
+            resize_imgperson4 = imgperson4.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person4 = ImageTk.PhotoImage(resize_imgperson4)
+            # หัวหน้า Development
+            img_p5 = canvas.create_image(320,410, image=img_person4)
+            label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
+            label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[index4]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": 
+            #index rank
+            index5 = sl_rank.search(r)
+            #img person
+            name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[index5]) + "_" + str(rank_list[index5])+".png"
+            imgperson5 = Image.open(name_person5)
+            resize_imgperson5 = imgperson5.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person5 = ImageTk.PhotoImage(resize_imgperson5)
+            # หัวหน้า ฝ่ายขาย
+            img_p6 = canvas.create_image(625,410, image=img_person5)
+            label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+            label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[index5]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": 
+            #index rank
+            index6 = sl_rank.search(r)
+            #img person
+            name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[index6]) + "_" + str(rank_list[index6])+".png"
+            imgperson6 = Image.open(name_person6)
+            resize_imgperson6 = imgperson6.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person6 = ImageTk.PhotoImage(resize_imgperson6)
+            # ฝ่ายบุคล
+            img_p4 = canvas.create_image(940,410, image=img_person6)
+            label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+                #index rank
+                index7 = sl_rank.search(r)
+                #img person
+                name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[index7]) + "_" + str(rank_list[index7])+".png"
+                imgperson7 = Image.open(name_person7)
+                resize_imgperson7 = imgperson7.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person7 = ImageTk.PhotoImage(resize_imgperson7)
+                # Developer
+                img_p7 = canvas.create_image(290,650, image=img_person7)
+                label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+                #index rank
+                index8 = sl_rank.search(r)
+                #img person
+                name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
+                imgperson8 = Image.open(name_person8)
+                resize_imgperson8 = imgperson8.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person8 = ImageTk.PhotoImage(resize_imgperson8)
+                # Developer
+                img_p8 = canvas.create_image(415,650, image=img_person8)
+                label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+                #index rank
+                index9 = sl_rank.search(r)
+                #img person
+                name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[index9]) + "_" + str(rank_list[index9])+".png"
+                imgperson9 = Image.open(name_person9)
+                resize_imgperson9 = imgperson9.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person9 = ImageTk.PhotoImage(resize_imgperson9)
+                # ฝ่ายขาย
+                img_p9 = canvas.create_image(570,650, image=img_person9)
+                label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
+                count_marketing = count_marketing + 1
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+                #index rank
+                index11 = sl_rank.search(r)
+                #img person
+                nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
+                imgperson11 = Image.open(nameperson11)
+                resize_imgperson11 = imgperson11.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person11 = ImageTk.PhotoImage(resize_imgperson11)
+                # ฝ่ายขาย
+                img_p10 = canvas.create_image(695,650, image=img_person11)
+                label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
+elif i == 7:
+    print("person "+str(i))
+    #พื้นหลัง
+    bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
+    # bg_label = tk.Label(window,image=bg)
+    # bg_label.pack()
+    # cancvas
+    bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
+    for r in rank_list:
+        if r == "CEO" or r == "Ceo" or r == "ceo": 
+            #index rank
+            index1 = sl_rank.search(r)
+            #img person
+            name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[index1]) + "_" + str(rank_list[index1])+".png"
+            imgperson1 = Image.open(name_person1)
+            resize_imgperson1 = imgperson1.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person1 = ImageTk.PhotoImage(resize_imgperson1)
+            #ceo
+            img_p1 = canvas.create_image(615,110, image=img_person1)
+            label_ceo = canvas.create_text(620,200, text=str(user_list[index1]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": 
+            #index rank
+            index2 = sl_rank.search(r)
+            #img person
+            name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[index2]) + "_" + str(rank_list[index2])+".png"
+            imgperson2 = Image.open(name_person2)
+            resize_imgperson2 = imgperson2.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person2 = ImageTk.PhotoImage(resize_imgperson2)
+            #รองประธาน
+            img_p2 = canvas.create_image(425,230, image=img_person2)
+            label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
+            label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[index2]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Secretary" or r == "secretary": 
+            #index rank
+            index3 = sl_rank.search(r)
+            #img person
+            name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[index3]) + "_" + str(rank_list[index3])+".png"
+            imgperson3 = Image.open(name_person3)
+            resize_imgperson3 = imgperson3.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person3 = ImageTk.PhotoImage(resize_imgperson3)
+            # เลขา
+            img_p3 = canvas.create_image(820,230, image=img_person3)
+            label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(820,320, text=str(user_list[index3]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Development Manager" or r == "Development manager" or r == "development manager": 
+            #index rank
+            index4 = sl_rank.search(r)
+            #img person
+            name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[index4]) + "_" + str(rank_list[index4])+".png"
+            imgperson4 = Image.open(name_person4)
+            resize_imgperson4 = imgperson4.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person4 = ImageTk.PhotoImage(resize_imgperson4)
+            # หัวหน้า Development
+            img_p5 = canvas.create_image(320,410, image=img_person4)
+            label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
+            label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[index4]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": 
+            #index rank
+            index5 = sl_rank.search(r)
+            #img person
+            name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[index5]) + "_" + str(rank_list[index5])+".png"
+            imgperson5 = Image.open(name_person5)
+            resize_imgperson5 = imgperson5.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person5 = ImageTk.PhotoImage(resize_imgperson5)
+            # หัวหน้า ฝ่ายขาย
+            img_p6 = canvas.create_image(625,410, image=img_person5)
+            label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+            label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[index5]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": 
+            #index rank
+            index6 = sl_rank.search(r)
+            #img person
+            name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[index6]) + "_" + str(rank_list[index6])+".png"
+            imgperson6 = Image.open(name_person6)
+            resize_imgperson6 = imgperson6.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person6 = ImageTk.PhotoImage(resize_imgperson6)
+            # ฝ่ายบุคล
+            img_p4 = canvas.create_image(940,410, image=img_person6)
+            label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+                #index rank
+                index7 = sl_rank.search(r)
+                #img person
+                name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[index7]) + "_" + str(rank_list[index7])+".png"
+                imgperson7 = Image.open(name_person7)
+                resize_imgperson7 = imgperson7.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person7 = ImageTk.PhotoImage(resize_imgperson7)
+                # Developer
+                img_p7 = canvas.create_image(290,650, image=img_person7)
+                label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+                #index rank
+                index8 = sl_rank.search(r)
+                #img person
+                name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
+                imgperson8 = Image.open(name_person8)
+                resize_imgperson8 = imgperson8.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person8 = ImageTk.PhotoImage(resize_imgperson8)
+                # Developer
+                img_p8 = canvas.create_image(415,650, image=img_person8)
+                label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+                #index rank
+                index9 = sl_rank.search(r)
+                #img person
+                name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[index9]) + "_" + str(rank_list[index9])+".png"
+                imgperson9 = Image.open(name_person9)
+                resize_imgperson9 = imgperson9.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person9 = ImageTk.PhotoImage(resize_imgperson9)
+                # ฝ่ายขาย
+                img_p9 = canvas.create_image(570,650, image=img_person9)
+                label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
+                count_marketing = count_marketing + 1
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+                #index rank
+                index11 = sl_rank.search(r)
+                #img person
+                nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
+                imgperson11 = Image.open(nameperson11)
+                resize_imgperson11 = imgperson11.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person11 = ImageTk.PhotoImage(resize_imgperson11)
+                # ฝ่ายขาย
+                img_p10 = canvas.create_image(695,650, image=img_person11)
+                label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
+elif i == 6:
+    print("person "+str(i))
+    #พื้นหลัง
+    bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
+    # bg_label = tk.Label(window,image=bg)
+    # bg_label.pack()
+    # cancvas
+    bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
+    for r in rank_list:
+        if r == "CEO" or r == "Ceo" or r == "ceo": 
+            #index rank
+            index1 = sl_rank.search(r)
+            #img person
+            name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[index1]) + "_" + str(rank_list[index1])+".png"
+            imgperson1 = Image.open(name_person1)
+            resize_imgperson1 = imgperson1.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person1 = ImageTk.PhotoImage(resize_imgperson1)
+            #ceo
+            img_p1 = canvas.create_image(615,110, image=img_person1)
+            label_ceo = canvas.create_text(620,200, text=str(user_list[index1]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": 
+            #index rank
+            index2 = sl_rank.search(r)
+            #img person
+            name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[index2]) + "_" + str(rank_list[index2])+".png"
+            imgperson2 = Image.open(name_person2)
+            resize_imgperson2 = imgperson2.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person2 = ImageTk.PhotoImage(resize_imgperson2)
+            #รองประธาน
+            img_p2 = canvas.create_image(425,230, image=img_person2)
+            label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
+            label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[index2]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Secretary" or r == "secretary": 
+            #index rank
+            index3 = sl_rank.search(r)
+            #img person
+            name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[index3]) + "_" + str(rank_list[index3])+".png"
+            imgperson3 = Image.open(name_person3)
+            resize_imgperson3 = imgperson3.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person3 = ImageTk.PhotoImage(resize_imgperson3)
+            # เลขา
+            img_p3 = canvas.create_image(820,230, image=img_person3)
+            label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(820,320, text=str(user_list[index3]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Development Manager" or r == "Development manager" or r == "development manager": 
+            #index rank
+            index4 = sl_rank.search(r)
+            #img person
+            name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[index4]) + "_" + str(rank_list[index4])+".png"
+            imgperson4 = Image.open(name_person4)
+            resize_imgperson4 = imgperson4.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person4 = ImageTk.PhotoImage(resize_imgperson4)
+            # หัวหน้า Development
+            img_p5 = canvas.create_image(320,410, image=img_person4)
+            label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
+            label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[index4]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": 
+            #index rank
+            index5 = sl_rank.search(r)
+            #img person
+            name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[index5]) + "_" + str(rank_list[index5])+".png"
+            imgperson5 = Image.open(name_person5)
+            resize_imgperson5 = imgperson5.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person5 = ImageTk.PhotoImage(resize_imgperson5)
+            # หัวหน้า ฝ่ายขาย
+            img_p6 = canvas.create_image(625,410, image=img_person5)
+            label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+            label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[index5]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": 
+            #index rank
+            index6 = sl_rank.search(r)
+            #img person
+            name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[index6]) + "_" + str(rank_list[index6])+".png"
+            imgperson6 = Image.open(name_person6)
+            resize_imgperson6 = imgperson6.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person6 = ImageTk.PhotoImage(resize_imgperson6)
+            # ฝ่ายบุคล
+            img_p4 = canvas.create_image(940,410, image=img_person6)
+            label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+                #index rank
+                index7 = sl_rank.search(r)
+                #img person
+                name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[index7]) + "_" + str(rank_list[index7])+".png"
+                imgperson7 = Image.open(name_person7)
+                resize_imgperson7 = imgperson7.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person7 = ImageTk.PhotoImage(resize_imgperson7)
+                # Developer
+                img_p7 = canvas.create_image(290,650, image=img_person7)
+                label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+                #index rank
+                index8 = sl_rank.search(r)
+                #img person
+                name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
+                imgperson8 = Image.open(name_person8)
+                resize_imgperson8 = imgperson8.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person8 = ImageTk.PhotoImage(resize_imgperson8)
+                # Developer
+                img_p8 = canvas.create_image(415,650, image=img_person8)
+                label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+                #index rank
+                index9 = sl_rank.search(r)
+                #img person
+                name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[index9]) + "_" + str(rank_list[index9])+".png"
+                imgperson9 = Image.open(name_person9)
+                resize_imgperson9 = imgperson9.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person9 = ImageTk.PhotoImage(resize_imgperson9)
+                # ฝ่ายขาย
+                img_p9 = canvas.create_image(570,650, image=img_person9)
+                label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
+                count_marketing = count_marketing + 1
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+                #index rank
+                index11 = sl_rank.search(r)
+                #img person
+                nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
+                imgperson11 = Image.open(nameperson11)
+                resize_imgperson11 = imgperson11.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person11 = ImageTk.PhotoImage(resize_imgperson11)
+                # ฝ่ายขาย
+                img_p10 = canvas.create_image(695,650, image=img_person11)
+                label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
+else:
+    print("person "+str(i))
+    #พื้นหลัง
+    bg = ImageTk.PhotoImage(file="ProjectmangeHR/UI/bg_page1_10.png")
+    # bg_label = tk.Label(window,image=bg)
+    # bg_label.pack()
+    # cancvas
+    bg_page = canvas.create_image(0,0, image=bg, anchor=NW) #bg
+    for r in rank_list:
+        if r == "CEO" or r == "Ceo" or r == "ceo": 
+            #index rank
+            index1 = sl_rank.search(r)
+            #img person
+            name_person1 = "ProjectmangeHR/DCIM/" + str(user_list[index1]) + "_" + str(rank_list[index1])+".png"
+            imgperson1 = Image.open(name_person1)
+            resize_imgperson1 = imgperson1.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person1 = ImageTk.PhotoImage(resize_imgperson1)
+            #ceo
+            img_p1 = canvas.create_image(615,110, image=img_person1)
+            label_ceo = canvas.create_text(620,200, text=str(user_list[index1]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": 
+            #index rank
+            index2 = sl_rank.search(r)
+            #img person
+            name_person2 = "ProjectmangeHR/DCIM/" + str(user_list[index2]) + "_" + str(rank_list[index2])+".png"
+            imgperson2 = Image.open(name_person2)
+            resize_imgperson2 = imgperson2.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person2 = ImageTk.PhotoImage(resize_imgperson2)
+            #รองประธาน
+            img_p2 = canvas.create_image(425,230, image=img_person2)
+            label_ViceChairman = canvas.create_text(430,290, text="รองประธาน",font="supermarket 16",fill='#ffffff')
+            label_name_ViceChairman = canvas.create_text(430,320, text=str(user_list[index2]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Secretary" or r == "secretary": 
+            #index rank
+            index3 = sl_rank.search(r)
+            #img person
+            name_person3 = "ProjectmangeHR/DCIM/" + str(user_list[index3]) + "_" + str(rank_list[index3])+".png"
+            imgperson3 = Image.open(name_person3)
+            resize_imgperson3 = imgperson3.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person3 = ImageTk.PhotoImage(resize_imgperson3)
+            # เลขา
+            img_p3 = canvas.create_image(820,230, image=img_person3)
+            label_Secretary = canvas.create_text(820,290, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(820,320, text=str(user_list[index3]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Development Manager" or r == "Development manager" or r == "development manager": 
+            #index rank
+            index4 = sl_rank.search(r)
+            #img person
+            name_person4 = "ProjectmangeHR/DCIM/" + str(user_list[index4]) + "_" + str(rank_list[index4])+".png"
+            imgperson4 = Image.open(name_person4)
+            resize_imgperson4 = imgperson4.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person4 = ImageTk.PhotoImage(resize_imgperson4)
+            # หัวหน้า Development
+            img_p5 = canvas.create_image(320,410, image=img_person4)
+            label_Development_manager = canvas.create_text(330,470, text="หัวหน้านักพัฒนา",font="supermarket 16",fill='#ffffff')
+            label_name_Development_manager = canvas.create_text(330,500, text=str(user_list[index4]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": 
+            #index rank
+            index5 = sl_rank.search(r)
+            #img person
+            name_person5 = "ProjectmangeHR/DCIM/" + str(user_list[index5]) + "_" + str(rank_list[index5])+".png"
+            imgperson5 = Image.open(name_person5)
+            resize_imgperson5 = imgperson5.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person5 = ImageTk.PhotoImage(resize_imgperson5)
+            # หัวหน้า ฝ่ายขาย
+            img_p6 = canvas.create_image(625,410, image=img_person5)
+            label_Marketing_manager = canvas.create_text(630,470, text="หัวหน้าฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+            label_name_Marketing_manager = canvas.create_text(630,500, text=str(user_list[index5]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": 
+            #index rank
+            index6 = sl_rank.search(r)
+            #img person
+            name_person6 = "ProjectmangeHR/DCIM/" + str(user_list[index6]) + "_" + str(rank_list[index6])+".png"
+            imgperson6 = Image.open(name_person6)
+            resize_imgperson6 = imgperson6.resize((90,90))
+            # imgperson3 = Image.open()
+            img_person6 = ImageTk.PhotoImage(resize_imgperson6)
+            # ฝ่ายบุคล
+            img_p4 = canvas.create_image(940,410, image=img_person6)
+            label_Secretary = canvas.create_text(940,470, text="เลขา",font="supermarket 16",fill='#ffffff')
+            label_name_Secretary = canvas.create_text(940,500, text=str(user_list[index6]),font="supermarket 16",fill='#ffffff')
+
+        elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+                #index rank
+                index7 = sl_rank.search(r)
+                #img person
+                name_person7 = "ProjectmangeHR/DCIM/" + str(user_list[index7]) + "_" + str(rank_list[index7])+".png"
+                imgperson7 = Image.open(name_person7)
+                resize_imgperson7 = imgperson7.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person7 = ImageTk.PhotoImage(resize_imgperson7)
+                # Developer
+                img_p7 = canvas.create_image(290,650, image=img_person7)
+                label_Developer_1 = canvas.create_text(285,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_1 = canvas.create_text(285,730, text=str(user_list[index7]),font="supermarket 9",fill='#ffffff')
+                
+        elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+                #index rank
+                index8 = sl_rank.search(r)
+                #img person
+                name_person8 = "ProjectmangeHR/DCIM/" + str(user_list[index8]) + "_" + str(rank_list[index8])+".png"
+                imgperson8 = Image.open(name_person8)
+                resize_imgperson8 = imgperson8.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person8 = ImageTk.PhotoImage(resize_imgperson8)
+                # Developer
+                img_p8 = canvas.create_image(415,650, image=img_person8)
+                label_Developer_2 = canvas.create_text(425,705, text="นักพัฒนา",font="supermarket 16",fill='#ffffff')
+                label_name_Developer_2 = canvas.create_text(425,730, text=str(user_list[index8]),font="supermarket 9",fill='#ffffff')
+
+        elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+                #index rank
+                index9 = sl_rank.search(r)
+                #img person
+                name_person9 = "ProjectmangeHR/DCIM/" + str(user_list[index9]) + "_" + str(rank_list[index9])+".png"
+                imgperson9 = Image.open(name_person9)
+                resize_imgperson9 = imgperson9.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person9 = ImageTk.PhotoImage(resize_imgperson9)
+                # ฝ่ายขาย
+                img_p9 = canvas.create_image(570,650, image=img_person9)
+                label_Marketing_1 = canvas.create_text(570,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_1 = canvas.create_text(570,730, text=str(user_list[index9]),font="supermarket 9",fill='#ffffff')
+                count_marketing = count_marketing + 1
+        elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+                #index rank
+                index11 = sl_rank.search(r)
+                #img person
+                nameperson11 = "ProjectmangeHR/DCIM/" + str(user_list[index11]) + "_" + str(rank_list[index11])+".png"
+                imgperson11 = Image.open(nameperson11)
+                resize_imgperson11 = imgperson11.resize((90,90))
+                # imgperson3 = Image.open()
+                img_person11 = ImageTk.PhotoImage(resize_imgperson11)
+                # ฝ่ายขาย
+                img_p10 = canvas.create_image(695,650, image=img_person11)
+                label_Marketing_2 = canvas.create_text(700,705, text="ฝ่ายขาย",font="supermarket 16",fill='#ffffff')
+                label_name_Marketing_2 = canvas.create_text(700,730, text=str(user_list[index11]),font="supermarket 9",fill='#ffffff')
+
+
+
 
 
 

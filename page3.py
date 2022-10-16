@@ -74,8 +74,10 @@ def search(event):
             messagebox.showinfo("Show info","ไม่พบข้อมูล")
 
 def search_icon():
-    data = search_bar.get()
-    print(data)
+    data1 = search_bar.get()
+    data2 = str(data1)
+    data = data2.upper()
+    print(data.upper())
     print(user_list)
     index = 0
     for i in range(len(user_list)+1):
