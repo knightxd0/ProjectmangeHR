@@ -193,13 +193,13 @@ def insertMember():
     data = inAndDel.get()
     label_tree.configure(state=NORMAL)
     c = "cancel"
-    if data == c or numofperson >= 10:
+    if data == c or numofperson >= 13:
         logic = 0
         cnum = 0
         label_tree.configure(state=NORMAL)
         if data == c:
             label_tree.insert(tk.END,"BOT: Failed to execute\n")
-        elif numofperson >= 10:
+        elif numofperson >= 13:
             label_tree.insert(tk.END,"BOT: Failed to execute because full staff\n")
         label_tree.configure(state=DISABLED)
     
@@ -252,28 +252,37 @@ def insertMember():
                 logicnum = 0
 
 def insert_user(user, rank):
-
+    global salary
     u = user
     r = rank
-    if r == "CEO" or r == "Ceo" or r == "ceo": salary = "200,000"
-    elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman": salary = "80,000"
-    elif r == "Secretary" or r == "secretary": salary = "40,000"
-    elif r == "Development Manager" or r == "Development manager" or r == "development manager": salary = "50,000"
-    elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager": salary = "30,000"
-    elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager": salary = "26,000"
-    elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1": 
+    if r == "CEO" or r == "Ceo" or r == "ceo" or r == "ประธานบริษัท": 
+        salary = "200,000"
+    elif r == "Vice Chairman" or r == "Vice chairman" or r == "vice chairman" or r == "รองประธานบริษัท": 
+        salary = "80,000"
+    elif r == "Secretary" or r == "secretary" or r == "แผนกบุคคล": 
+        salary = "40,000"
+    elif r == "Development Manager" or r == "Development manager" or r == "development manager" or r == "ผู้จัดการ": 
+        salary = "50,000"
+    elif r == "Marketing Manager" or r == "Marketing manager" or r == "marketing manager" or r == "ผู้ช่วยผู้จัดการ1": 
+        salary = "30,000"
+    elif r == "Personnel Manager" or r == "Personnel manager" or r == "personnel manager" or r == "ผู้ช่วยผู้จัดการ2": 
+        salary = "26,000"
+    elif r == "Developer Member1" or r == "Developer member1" or r == "developer member1" or r == "พนักงานการตลาด1": 
         salary = "20,000"
-        r = "Developer Member1"
-    elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2": 
+        # r = "Developer Member1"
+    elif r == "Developer Member2" or r == "Developer member2" or r == "developer member2" or r == "พนักงานการตลาด2": 
         salary = "20,000"
-        r = "Developer Member2"
+        # r = "Developer Member2"
 
-    elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1": 
+    elif r == "Marketing Member1" or r == "Marketing member1" or r == "marketing member1" or r == "การบัญชี": 
         salary = "18,000"
-        r = "Marketing Member1"
-    elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2": 
+        # r = "Marketing Member1"
+    elif r == "Marketing Member2" or r == "Marketing member2" or r == "marketing member2" or r == "หัวหน้าแม่บ้าน": 
         salary = "18,000"
-        r = "Marketing Member2"
+        # r = "Marketing Member2"
+    elif r == "แม่บ้าน": 
+        salary = "9,000"
+        # r = "Marketing Member2"
     
     
     print("u = " + u)

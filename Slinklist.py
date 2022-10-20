@@ -1,4 +1,3 @@
-from msilib.schema import File
 
 
 class Node:
